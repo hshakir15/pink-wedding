@@ -1,0 +1,365 @@
+@layer utilities {
+    .font-script {
+        font-family: 'Great Vibes', 'Alex Brush', 'Pinyon Script', cursive;
+    }
+    .font-scriptAlt {
+        font-family: 'Parisienne', 'Alex Brush', cursive;
+    }
+    .font-serif {
+        font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    }
+    .font-cinzel {
+        font-family: 'Cinzel', serif;
+    }
+    .font-sans {
+        font-family: 'Montserrat', sans-serif;
+    }
+    .font-arabic {
+        font-family: 'Amiri', 'Traditional Arabic', serif;
+    }
+}
+
+/* Signature Gold Calligraphy Styling matching reference image exactly */
+.text-gold-calligraphy {
+    color: #f5b736;
+    background: linear-gradient(180deg, #fff9d6 0%, #ffd055 25%, #d49826 65%, #ffdb70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 16px rgba(245, 183, 54, 0.75));
+    display: inline-block;
+    padding: 0.18em 0.25em 0.12em 0.25em;
+    overflow: visible;
+    box-sizing: content-box;
+}
+
+/* Fallback for browsers that don't support text fill color */
+@supports not (-webkit-background-clip: text) {
+    .text-gold-calligraphy {
+        color: #f5b736;
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.95), 0 0 16px rgba(245, 183, 54, 0.75);
+    }
+}
+
+/* Grand responsive typography filling the center view matching reference */
+.hero-name-single {
+    font-size: clamp(3.8rem, 12.5vw, 7.8rem);
+    line-height: 1.22;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.hero-name-groom {
+    font-size: clamp(3.2rem, 10.5vw, 7.2rem);
+    line-height: 1.22;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+/* Grand responsive typography filling the center view nicely */
+.hero-header {
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    line-height: 1.2;
+    padding: 0 0.1em;
+}
+
+.hero-names {
+    font-size: clamp(3.8rem, 12.5vw, 8.2rem);
+    line-height: 1.22;
+    letter-spacing: 0.01em;
+    padding: 0.18em 0.25em;
+    overflow: visible;
+}
+
+.hero-ampersand {
+    font-size: clamp(2.2rem, 6.8vw, 4.4rem);
+    line-height: 1.1;
+    padding: 0 0.15em;
+    overflow: visible;
+}
+
+.hero-bismillah {
+    font-size: clamp(1.65rem, 5.2vw, 3.2rem);
+    line-height: 1.5;
+    margin-top: clamp(0.6rem, 1.8vh, 1.4rem);
+    margin-bottom: clamp(1.25rem, 3.2vh, 2.4rem);
+    padding-bottom: 0.25rem;
+}
+
+.hero-subtitles {
+    font-size: clamp(1rem, 3.4vw, 1.55rem);
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+}
+
+/* Fallback for browsers that don't support text fill color */
+@supports not (-webkit-background-clip: text) {
+    .text-gold-calligraphy {
+        color: #e5a93c;
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.95), 0 0 12px rgba(229, 169, 60, 0.5);
+    }
+}
+
+/* Ambient Floating Particles */
+.stars-container {
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 40px 70px, #ffd700, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 90px 40px, #e5a91f, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 160px 120px, #ffd700, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.35;
+    animation: starsDrift 60s linear infinite;
+}
+
+@keyframes starsDrift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* Equalizer bar animation */
+.eq-bar {
+    width: 2px;
+    background-color: #f6d56d;
+    border-radius: 1px;
+    animation: bounceEq 1s ease-in-out infinite alternate;
+}
+.eq-bar:nth-child(1) { animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { animation-delay: 0.4s; }
+.eq-bar:nth-child(3) { animation-delay: 0.2s; }
+.eq-bar:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes bounceEq {
+    0% { height: 3px; }
+    100% { height: 12px; }
+}
+
+.music-paused .eq-bar {
+    animation-play-state: paused;
+    height: 3px;
+}
+
+/* Envelope pulse ring */
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+/* Scroll indicator glow and bounce */
+.scroll-arrow-wrapper i {
+    filter: drop-shadow(0 0 6px rgba(229, 169, 31, 0.7));
+}
+
+#scroll-prompt-container {
+    animation: gentleFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+/* Smooth reveal animation for Reference Typography Overlay */
+.typography-revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Clean full-bleed interface - Completely hide scrollbar across all browsers */
+::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+}
+
+html, body {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden !important;
+}
+
+/* Scroll lock state until video playback ends */
+html.scroll-locked, body.scroll-locked {
+    overflow: hidden !important;
+    touch-action: none !important;
+    height: 100% !important;
+}
+
+/* Pink Watercolor Theme Background for All Content Sections */
+.pink-theme-bg {
+    background-color: #fdf5f2;
+    background-image: url('assets/images/pink_bg_custom.png?v=3');
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    background-position: center top;
+}
+
+/* Bride & Groom Section Styling matching Reference 1 */
+.couple-card-bg {
+    background: radial-gradient(circle at 50% 30%, #fffbf8 0%, #fef5ef 55%, #faebe2 100%);
+    box-shadow: 0 15px 45px rgba(180, 130, 60, 0.15), 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.portrait-halo-ring {
+    border: 3.5px solid #d4af37;
+    box-shadow: 0 8px 24px rgba(180, 130, 60, 0.3), inset 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+.couple-script-name {
+    font-family: 'Parisienne', 'Great Vibes', cursive;
+    color: #882937;
+    text-shadow: 0 2px 8px rgba(136, 41, 55, 0.12);
+}
+
+.couple-parent-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #4a1d24;
+}
+
+/* Light Luxury Card Styles */
+.light-luxury-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 10px 30px rgba(180, 130, 60, 0.12);
+}
+
+.light-luxury-card:hover {
+    border-color: rgba(184, 134, 11, 0.6);
+    box-shadow: 0 15px 40px rgba(180, 130, 60, 0.18);
+}
+
+/* Unified Wedding Card Style (Soft Light Peach Theme & Matching Corners) */
+.wedding-card {
+    background: linear-gradient(180deg, #fffaf5 0%, #fef3ea 50%, #fdeade 100%) !important;
+    border: 1px solid rgba(238, 212, 196, 0.9) !important;
+    border-radius: 28px !important;
+    box-shadow: 0 16px 50px rgba(195, 125, 95, 0.09), 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+}
+
+@media (min-width: 640px) {
+    .wedding-card {
+        border-radius: 34px !important;
+    }
+}
+
+/* ========================================================
+   PREMIUM COUNTDOWN CARD & DIGIT TRANSITION
+   ======================================================== */
+.countdown-premium-card {
+    background: linear-gradient(180deg, rgba(255, 253, 250, 0.97) 0%, rgba(254, 248, 243, 0.95) 55%, rgba(252, 241, 235, 0.93) 100%) !important;
+    border: 1px solid rgba(216, 185, 138, 0.45) !important;
+    border-radius: 32px !important;
+    box-shadow: 0 20px 50px -10px rgba(160, 95, 75, 0.12), 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+@media (min-width: 640px) {
+    .countdown-premium-card {
+        border-radius: 38px !important;
+    }
+}
+
+.countdown-unit-box {
+    background: linear-gradient(180deg, #fffdfb 0%, #fef7f2 100%);
+    border: 1px solid rgba(216, 185, 138, 0.42);
+    box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.95), 0 4px 14px rgba(160, 100, 80, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.countdown-digit {
+    display: inline-block;
+    transition: opacity 300ms cubic-bezier(0.25, 1, 0.5, 1), transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.countdown-digit.digit-exit {
+    opacity: 0.25;
+    transform: translateY(-3px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e5a91f88;
+}
+
+/* ========================================================
+   FLOATING FLORAL PARTICLES (PETALS & LEAVES IN GENTLE BREEZE)
+   ======================================================== */
+#floral-particles-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none !important;
+    z-index: 25;
+    overflow: hidden;
+}
+
+.floral-particle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    padding: 6px;
+    margin: -6px;
+    will-change: transform, opacity;
+    user-select: none;
+    -webkit-user-select: none;
+    backface-visibility: hidden;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    opacity: 0;
+    transform: translate3d(-200px, -200px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #floral-particles-container {
+        display: none !important;
+    }
+    .gsap-text, .gsap-header, .gsap-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* GSAP Animated Typography Performance Optimization */
+.gsap-animated {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
